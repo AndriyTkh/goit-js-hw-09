@@ -78,7 +78,7 @@ let galleryCode = '';
 
 images.forEach(element => {
   galleryCode += `<li class="gallery-item">
-  <a class="gallery-link" href="">
+  <a class="gallery-link" href="${element.original}">
     <img
       class="gallery-image"
       src= ${element.preview}
@@ -90,7 +90,6 @@ images.forEach(element => {
 
 gallery.innerHTML = galleryCode;
 
-let lightbox = new SimpleLightbox('.gallery a');
-lightbox.on('show.simplelightbox', function () {
-  // do something…
-});
+let lightbox = new SimpleLightbox('.gallery-link');
+lightbox.options.captionDelay = 250;
+lightbox.options.captionsData = 'alt';
